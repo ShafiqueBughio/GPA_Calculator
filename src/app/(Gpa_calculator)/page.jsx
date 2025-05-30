@@ -44,20 +44,29 @@ const page = () => {
 
             switch(course.grade.toUpperCase()){
                 case 'A': 
-                gradePoint = 4.0;
+                gradePoint = 4;
+                break;
+                case 'A-':
+                    gradePoint = 3.67;
+                    break;
+                case 'B+': 
+                gradePoint = 3.33;
                 break;
                 case 'B':
-                    gradePoint = 3.0;
+                    gradePoint = 3;
                     break;
-                case 'C': 
-                gradePoint = 2.0;
-                break;
-                case 'D':
-                    gradePoint = 1.0;
-                    break;
-                    case 'F':
+                    case 'B-':
+                        gradePoint = 2.67
+                        break;
+                    case  'C+':
+                        gradePoint = 2.33
+                        break;
+                        case 'C':
+                            gradePoint = 2
+                            break;
+                            case 'F':
                     default : 
-                    gradePoint = 0.0;
+                    gradePoint = 0;
             }
 
             const credit = parseFloat(course.credit);
@@ -70,7 +79,7 @@ const page = () => {
         }
 
   return (
-    <div>
+    <div className='w-full h-screen '>
         <form onSubmit={handleSubmit(HandleGapSubmit)}
         className='max-w-2xl mx-auto mt-10 p-4 border rounded-lg space-y-4'
         >
@@ -107,11 +116,19 @@ const page = () => {
                 {/* grade  */}
                 <div className='flex flex-col gap-1 md:my-0 my-2'>
                     <label className='block font-medium'>Grade</label>
-                    <input
-                    {...register(`courses.${index}.grade`)}
-                    placeholder='e.g: A'
-                    className='w-full p-2 rounded border'
-                    />
+                   <select   
+                   {...register(`courses.${index}.grade`)}
+                    className='w-full p-2 rounded border bg-white'>
+                        <option value="">Select Grade</option>
+                        <option value="A">A</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B">B</option>
+                        <option value="B-">B-</option>
+                        <option value="C+">C+</option>
+                        <option value="C">C</option>
+                        <option value="F">F</option>
+                    </select>
                     {errors?.courses?.[index]?.grade && <p className='text-sm text-red-500'>
                         {errors?.courses[index].grade?.message}
                         </p>}

@@ -11,8 +11,9 @@ const Courses_Schema = yup.object().shape({
         .required("credit hours are required!"),
 
         grade : yup.string()
+        .oneOf(['A','A-','B+','B','B-','C+','C','F'],"Invalid grade")
         .required("Grade is required!")
-        .matches(/^[ABCDF]$/,"Enter grade A, B, C, D or F")
+        
     })
   )  
 })
