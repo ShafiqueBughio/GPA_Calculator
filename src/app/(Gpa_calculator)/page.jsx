@@ -156,9 +156,14 @@ const page = () => {
                 className='bg-blue-500 text-white px-4 py-2 rounded cursor-pointer'
                 >Add Course</button>
 
-                {
-                    Gpa !== null && (<p className='text-lg font-semibold text-green-600'>GPA : {Gpa}</p>)
-                }
+               {Gpa !== null && (
+  <p className='text-lg font-semibold text-green-600'>
+    <span className='hidden md:inline'>GPA : </span>
+    <span className='md:hidden'>{Gpa}</span>
+    <span className='hidden md:inline'>{Gpa}</span>
+  </p>
+)}
+
 
                 <button
                 type='submit'
