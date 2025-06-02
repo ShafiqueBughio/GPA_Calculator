@@ -108,8 +108,8 @@ const page = () => {
                     placeholder='e.g: 3'
                     className='w-full p-2 rounded border'
                     />
-                    {errors?.courses?.[index].credit && <p className='text-sm text-red-500'>
-                        {errors?.courses[index].credit?.message}
+                    {errors?.courses?.[index]?.credit && <p className='text-sm text-red-500'>
+                        {errors?.courses[index]?.credit?.message}
                         </p>}
                 </div>
 
